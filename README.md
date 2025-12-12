@@ -43,7 +43,8 @@ GeneWeaver/
 ## Features (Current & Planned Scope)
 
 ### Data Retrieval (Initial Functionality)
-- Retrieve protein sequences from UniProt  
+- Retrieve protein sequences from UniProt
+- Fetch binding motifs (if available) from JASPAR  
 - Load domain annotations from InterPro  
 - Run basic disorder predictions (MetaPredict integration planned)  
 
