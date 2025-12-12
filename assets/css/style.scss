@@ -1,0 +1,31 @@
+
+@import "{{ site.theme }}";
+
+
+$teal-primary: #00796B;
+$orange-secondary: #FF9800; 
+$text-dark: #333333;
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $text-dark;
+}
+
+
+h1, h2, h3 {
+  color: $teal-primary;
+  border-bottom-color: $teal-primary;
+}
+
+
+a {
+  color: $teal-primary;
+}
+.btn { 
+  background-color: $orange-secondary;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
