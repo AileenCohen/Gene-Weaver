@@ -2,15 +2,15 @@
 # Front Matter is required
 ---
 
-// 1. Color Palette (High-Contrast Dark Mode)
-$bg-color: #0d1117;       // GitHub Dark background
-$card-bg: #161b22;        // Slightly lighter dark
-$accent-cyan: #58a6ff;    // Primary Cyan
-$accent-lime: #70e000;    // DNA Green
-$accent-purple: #bc8fdb;  // Accent Purple
-$text-main: #c9d1d9;      // Off-white text
+/* 1. Color Palette (High-Contrast Dark Mode) */
+$bg-color: #0d1117;       /* GitHub Dark background */
+$card-bg: #161b22;        /* Slightly lighter dark */
+$accent-cyan: #58a6ff;    /* Primary Cyan */
+$accent-lime: #70e000;    /* DNA Green */
+$accent-purple: #bc8fdb;  /* Accent Purple */
+$text-main: #c9d1d9;      /* Off-white text */
 
-// 2. Base Styles
+/* 2. Base Styles */
 body {
   background-color: $bg-color !important;
   color: $text-main !important;
@@ -19,20 +19,20 @@ body {
   padding: 0;
 }
 
-// 3. Remove/Hide the Default Theme Header
-header {
-  display: none !important; // This hides the "Ugly" top bar entirely
+/* 3. Remove/Hide the Default Theme Header */
+header, .site-header {
+  display: none !important; 
 }
 
-// 4. Custom Container
-.container-lg, .wrapper {
+/* 4. Custom Container */
+.container-lg, .wrapper, .main-content {
   background-color: $bg-color !important;
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-// 5. Typography
+/* 5. Typography */
 h1, h2, h3 {
   color: $accent-cyan;
   border-bottom: 1px solid #30363d;
@@ -40,13 +40,13 @@ h1, h2, h3 {
 }
 
 h1 {
-  background: linear-gradient(90deg, $accent-cyan, $accent-purple);
+  background: linear-gradient(90deg, #58a6ff, #bc8fdb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-bottom: none;
 }
 
-// 6. Code and Terminal
+/* 6. Code and Terminal */
 code {
   background-color: rgba(110, 118, 129, 0.4);
   color: $accent-lime;
@@ -63,7 +63,7 @@ pre {
   overflow: auto;
 }
 
-// 7. Links
+/* 7. Links */
 a {
   color: $accent-cyan;
   text-decoration: none;
