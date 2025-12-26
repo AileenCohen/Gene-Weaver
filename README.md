@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/img/Gene_Weaving.jpg" width="250">
+</p>
+
 # Gene Weaving: TF Designer
 
 **A specialized bioinformatics workbench for Transcription Factor engineering and construct design.**
