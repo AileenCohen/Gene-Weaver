@@ -7,7 +7,7 @@ layout: default
 </p>
 
 <h1 align="center">Gene Weaver</h1>
-<p align="center"><i>Automated Primer Design for Transcription Factor Research</i></p>
+<p align="center"><i>Automated Experimental Design for Transcription Factor Research</i></p>
 
 ---
 
