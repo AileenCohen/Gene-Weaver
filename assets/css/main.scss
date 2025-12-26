@@ -2,75 +2,73 @@
 # Front Matter is required
 ---
 
-// 1. Modern Biotech Variables (Matches your logo)
-$brand-dark: #0f172a;      // Deep Indigo background
-$brand-cyan: #22d3ee;      // Cyan (Neon highlights)
-$brand-purple: #a855f7;    // Purple (Accents)
-$brand-lime: #84cc16;      // Lime (Success/DNA indicators)
-$text-light: #f8fafc;
-$text-muted: #94a3b8;
+// 1. Color Palette (High-Contrast Dark Mode)
+$bg-color: #0d1117;       // GitHub Dark background
+$card-bg: #161b22;        // Slightly lighter dark
+$accent-cyan: #58a6ff;    // Primary Cyan
+$accent-lime: #70e000;    // DNA Green
+$accent-purple: #bc8fdb;  // Accent Purple
+$text-main: #c9d1d9;      // Off-white text
 
-// 2. Global Styles
+// 2. Base Styles
 body {
-    color: $text-light;
-    background-color: $brand-dark;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
+  background-color: $bg-color !important;
+  color: $text-main !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-// 3. Typography
+// 3. Remove/Hide the Default Theme Header
+header {
+  display: none !important; // This hides the "Ugly" top bar entirely
+}
+
+// 4. Custom Container
+.container-lg, .wrapper {
+  background-color: $bg-color !important;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+// 5. Typography
 h1, h2, h3 {
-    color: $brand-cyan;
-    font-weight: 700;
-    margin-top: 2rem;
-    border-bottom: 1px solid rgba($brand-cyan, 0.2);
-    padding-bottom: 0.5rem;
+  color: $accent-cyan;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.3em;
 }
 
-h1 { 
-    font-size: 2.5rem; 
-    background: linear-gradient(to right, $brand-cyan, $brand-purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border-bottom: none;
+h1 {
+  background: linear-gradient(90deg, $accent-cyan, $accent-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: none;
 }
 
-// 4. Links & Interactive elements
+// 6. Code and Terminal
+code {
+  background-color: rgba(110, 118, 129, 0.4);
+  color: $accent-lime;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+pre {
+  background-color: $card-bg !important;
+  border: 1px solid #30363d;
+  padding: 16px;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+// 7. Links
 a {
-    color: $brand-purple;
-    transition: color 0.3s ease;
-    font-weight: 600;
+  color: $accent-cyan;
+  text-decoration: none;
 }
 
 a:hover {
-    color: $brand-cyan;
-    text-decoration: none;
-}
-
-// 5. Code Blocks (Console style)
-pre, code {
-    background-color: #1e293b !important;
-    color: $brand-lime !important;
-    border: 1px solid rgba($brand-lime, 0.3);
-    border-radius: 6px;
-}
-
-code {
-    padding: 0.2rem 0.4rem;
-}
-
-// 6. Emphasis & Blockquotes
-blockquote {
-    border-left: 4px solid $brand-purple;
-    background: rgba($brand-purple, 0.05);
-    margin: 1.5rem 0;
-    padding: 1rem;
-    font-style: italic;
-    color: $text-muted;
-}
-
-// 7. DNA/Gene Layout adjustments
-.project-header {
-    text-align: center;
-    padding: 3rem 0;
+  text-decoration: underline;
 }
