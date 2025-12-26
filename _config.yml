@@ -1,9 +1,17 @@
-
-url: "https://AileenCohen.github.io/Gene-Weaving" 
-baseurl: "/Gene-Weaving" 
+title: Gene Weaving
+description: Automated Experimental Design for Transcription Factor Research.
 theme: jekyll-theme-minimal
 
+# Site Settings
+url: "https://AileenCohen.github.io" 
+baseurl: "/Gene-Weaving" 
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-github-metadata
+
+# CSS processing
+sass:
+  style: :compressed
