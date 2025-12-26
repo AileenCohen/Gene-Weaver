@@ -2,43 +2,75 @@
 # Front Matter is required
 ---
 
-// 1. Custom Variables (Your Brand Colors)
-$teal-primary: #00796B; 
-$orange-secondary: #FF9800; 
-$text-dark: #333333;
+// 1. Modern Biotech Variables (Matches your logo)
+$brand-dark: #0f172a;      // Deep Indigo background
+$brand-cyan: #22d3ee;      // Cyan (Neon highlights)
+$brand-purple: #a855f7;    // Purple (Accents)
+$brand-lime: #84cc16;      // Lime (Success/DNA indicators)
+$text-light: #f8fafc;
+$text-muted: #94a3b8;
 
-// 2. Apply custom styles
-
-// Main text and body colors
+// 2. Global Styles
 body {
-    color: $text-dark;
-    background-color: #F8F8F8;
+    color: $text-light;
+    background-color: $brand-dark;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
 }
 
-// Apply Primary Teal to headings and main accents
+// 3. Typography
 h1, h2, h3 {
-    color: $teal-primary;
+    color: $brand-cyan;
+    font-weight: 700;
+    margin-top: 2rem;
+    border-bottom: 1px solid rgba($brand-cyan, 0.2);
+    padding-bottom: 0.5rem;
 }
 
-// Style links (Navigation and in-text links)
+h1 { 
+    font-size: 2.5rem; 
+    background: linear-gradient(to right, $brand-cyan, $brand-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: none;
+}
+
+// 4. Links & Interactive elements
 a {
-    color: $teal-primary;
+    color: $brand-purple;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+a:hover {
+    color: $brand-cyan;
     text-decoration: none;
 }
-a:hover {
-    text-decoration: underline;
+
+// 5. Code Blocks (Console style)
+pre, code {
+    background-color: #1e293b !important;
+    color: $brand-lime !important;
+    border: 1px solid rgba($brand-lime, 0.3);
+    border-radius: 6px;
 }
 
-// Optional: Style the blockquotes for emphasis
-blockquote {
-    border-left: 4px solid $orange-secondary;
-    color: $text-dark;
-    padding-left: 1em;
-}
-
-// Style code blocks and structure code sections
 code {
-    background-color: #eee;
-    padding: 2px 4px;
-    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
+}
+
+// 6. Emphasis & Blockquotes
+blockquote {
+    border-left: 4px solid $brand-purple;
+    background: rgba($brand-purple, 0.05);
+    margin: 1.5rem 0;
+    padding: 1rem;
+    font-style: italic;
+    color: $text-muted;
+}
+
+// 7. DNA/Gene Layout adjustments
+.project-header {
+    text-align: center;
+    padding: 3rem 0;
 }
