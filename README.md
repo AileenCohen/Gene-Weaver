@@ -1,109 +1,98 @@
-# Gene Weaving  
-A lightweight Python toolkit and GUI concept for assisting with transcription factor construct design
+# Gene Weaving: TF Designer
+
+**A specialized bioinformatics workbench for Transcription Factor engineering and construct design.**
 
 ## Overview
-**Gene Weaving** is a developing bioinformatics tool aimed at simplifying common sequence-level design tasks for transcription factor (TF) research.  
-Its goal is to provide a single interface where researchers can fetch basic TF annotations, preview domain/disorder architecture, and generate simple primer designs for common cloning workflows.
+**Gene Weaving** is a lightweight Python toolkit and interactive workbench designed to streamline the design of transcription factor (TF) constructs. It bridges the gap between raw sequence data and lab-ready cloning strategies by centralizing protein architecture, disorder prediction, and primer design into a single automated workflow.
 
-The project is intended as a practical assistant for small-scale TF engineering tasks, with an emphasis on clarity, reproducibility and automation.
+The project focuses on the unique challenges of **Intrinsically Disordered Proteins (IDPs)** and complex TF assemblies, providing researchers with a visual and analytical "loom" to weave together domains, disordered regions, and binding sites.
 
 ---
 
 ## Motivation
-Designing constructs for transcription factors often requires collecting information from several sources: UniProt for sequences, InterPro for domain boundaries, disorder prediction tools for IDR regions, and then manually incorporating that information into cloning strategies.  
-Although none of these steps are individually complex, together they can slow down experimental planning.
-
-Gene Weaving aims to:
-- centralize essential annotation steps,
-- offer straightforward primer design for basic constructs,
-- and provide organized outputs suitable for lab documentation.
-
-The goal is not to replace full-featured bioinformatics platforms, but to streamline routine design work for TF-focused studies.
+Designing constructs for TFs often requires manual data collection from multiple siloed sources. Gene Weaving aims to:
+* **Centralize Annotations:** Aggregate data from UniProt, JASPAR, and String-DB.
+* **Visualize "Hidden" Architecture:** Map InterPro structural domains alongside **MetaPredict** disorder profiles to identify surgical boundaries for truncations.
+* **Automate Interaction Discovery:** Identify recruitment partners for co-activators that lack direct DNA-binding motifs.
+* **Simplify Precision Engineering:** Automate CRISPR/gRNA mapping and primer generation for deletions or substitutions.
 
 ---
 
-## Project Structure (Draft)
-```
+## Features
+
+### 1. Integrated Data Retrieval
+* **UniProt & InterPro Mapping:** Fetches primary sequences and maps manually curated features alongside signature-based structural domains.
+* **JASPAR Binding Motifs:** Retrieves and renders DNA-binding sequence logos.
+* **String-DB Interaction Network:** Identifies high-confidence physical interaction partners with a "one-click" analysis feature.
+
+### 2. Disorder & Architecture Visualization
+* **MetaPredict Integration:** Provides residue-level disorder probability scores to identify Intrinsically Disordered Regions (IDRs).
+* **Protein Mapping:** Generates a to-scale diagram of the protein, overlaying IDRs and folded domains.
+
+### 3. Precision Design Tools
+* **Automated Primer Designer:** Generates sequences with customizable 5'/3' overhangs (e.g., for Gibson Assembly).
+* **CRISPR/gRNA Mapper:** Scans regions for NGG PAM sites and maps gRNAs back to annotated domains to ensure functional targeting.
+* **Cloning Validation:** Screens synthetic DNA for internal restriction sites to prevent experimental failures.
+
+---
+
+## Project Structure
+```text
 GeneWeaving/
-│
-├─ src/
-│ ├─ api/ # Basic interfaces for external data sources
-│ ├─ analysis/ # Sequence parsing and annotation utilities
-│ ├─ primer_design/ # Simple primer design functions
-│ └─ gui/ # Early-stage GUI prototype (Streamlit or PyQt)
-│
-├─ examples/
-├─ tests/
-├─ README.md
-└─ requirements.txt
+├── src/
+│   ├── api/        # Interfaces for UniProt, JASPAR, and String-DB
+│   ├── analysis/   # Disorder (MetaPredict), CRISPR (gRNA), and Primer logic
+│   └── gui/        # Streamlit-based interactive workbench
+├── tests/          # Pytest suite for API and analysis validation
+├── requirements.txt
+└── .gitignore      # Optimized for Python and Bioinformatics tools
 ```
-
 ---
 
-## Features (Current & Planned Scope)
-
-### Data Retrieval (Initial Functionality)
-- Retrieve protein sequences from UniProt
-- Fetch binding motifs (if available) from JASPAR  
-- Load domain annotations from InterPro  
-- Run basic disorder predictions (MetaPredict integration planned)  
-
-### Basic Construct & Primer Design
-- Generate primers for:
-  - small deletions  
-  - N-/C-terminal truncations  
-  - simple substitution designs  
-- Provide standard overhang options suitable for Gibson Assembly  
-
-These design tools focus on small, clearly defined edits rather than complex multi-fragment workflows.
-
-### Validation (Limited)
-- Estimate melting temperature (Tm)  
-- Calculate GC%  
-- Screen for obvious hairpins or dimers  
-
-### Export
-- Primer lists to CSV  
-- Basic FASTA export for modified sequences  
-
+## Installation & Setup
+1. Clone the repository:
+   ```
+   git clone [https://github.com/AileenCohen/Gene-Weaving.git](https://github.com/AileenCohen/Gene-Weaving.git)
+   cd Gene-Weaving
+   ```
+2. Create a virtual environment:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+4. Run the app:
+    ```
+    python main.py
+    ```
+## Testing:
+To ensure coordinate math and API connections are functioning correctly, run the automated test suite:
+```
+python -m pytest
+```
 ---
-
 ## Example Workflow
-1. User inputs a UniProt ID (e.g., `P10275` for human MYC).  
-2. Gene Weaving retrieves:
-   - primary sequence  
-   - InterPro-annotated domain boundaries  
-   - predicted disorder regions (if enabled)  
-3. The user selects a simple design (e.g., remove an annotated IDR or create a small truncation).  
-4. The toolkit generates basic primers and provides Tm/GC estimates.  
-5. Outputs are exported to CSV or FASTA for bench use.
-
-This workflow is intended for straightforward construct design rather than comprehensive mutagenesis pipelines.
-
+- Search: Input a UniProt ID (e.g., P05412 for Human JUN).
+- Explore: Visualize the bZIP domain and flanking IDRs on the Protein Map.
+- Interact: View partners like FOS or ATF2 and switch to them instantly.
+- Design: Highlight a domain to generate gRNAs for a knockout or primers for a truncation.
+- Export: Download a CSV of primers and coordinates for bench use.
 ---
-
-## GUI (Prototype Status)
-A minimal GUI is planned to:
-- accept UniProt input  
-- display annotated sequence regions  
-- offer primer design options  
-- export results  
-
-The interface will prioritize clarity and ease of use over feature complexity.
-
----
-
 ## Dependencies
-- **Python 3.8+**  
-- `requests` — external data retrieval  
-- `Biopython` — sequence utilities  
-- `pandas` — CSV handling  
-- `metapredict` — disorder prediction  
-- `Streamlit` or `PyQt` — basic GUI  
-- `pytest` — testing  
-
+- Python 3.10+
+- Streamlit (UI)
+- Biopython (Sequence handling)
+- MetaPredict (IDR prediction)
+- Logomaker (Motif visualization)
+- Requests (API management)
+- Pytest (Validation)
 ---
 
 Gene Weaving is a project focused on providing accessible, practical tools for transcription factor construct design.  
 Its scope is intentionally modest, emphasizing usability and core functionality over full automation.
 If you have any additional ideas, please open an issue and let me know.
+
+Created by Aileen Cohen.
